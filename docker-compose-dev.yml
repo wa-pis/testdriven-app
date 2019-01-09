@@ -14,8 +14,8 @@ services:
       - FLASK_APP=project/__init__.py
       - FLASK_ENV=development
       - APP_SETTINGS=project.config.DevelopmentConfig
-      - DATABASE_TEST_URL=mysql://EWwW8rOo0I4hQcbmrqnXY7jY:EWwW8rOo0I4hQcbmrqnXY7jY@users-db:3308/users_dev
-      - DATABASE_TEST_URL=mysql://EWwW8rOo0I4hQcbmrqnXY7jY:EWwW8rOo0I4hQcbmrqnXY7jY@users-db:3308/users_test
+      - DATABASE_TEST_URL=mysql://EWwW8rOo0I4hQcbmrqnXY7jY:EWwW8rOo0I4hQcbmrqnXY7jY@users-db:3306/users_dev
+      - DATABASE_TEST_URL=mysql://EWwW8rOo0I4hQcbmrqnXY7jY:EWwW8rOo0I4hQcbmrqnXY7jY@users-db:3306/users_test
     depends_on:
       - users-db
 
@@ -24,7 +24,7 @@ services:
       context: ./services/users/project/db
       dockerfile: Dockerfile
     ports:
-      - 5999:3308
+      - 5999:3306
     environment:
       - MYSQL_ROOT_PASSWORD=EWwW8rOo0I4hQcbmrqnXY7jY
       - MYSQL_USER=EWwW8rOo0I4hQcbmrqnXY7jY
