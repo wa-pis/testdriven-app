@@ -15,7 +15,7 @@ class TestingConfig(BaseConfig):
     """Testing configuration"""
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_TEST_URL') 
-
+    SECRET_KEY = 'my_precious'
 
 class ProductionConfig(BaseConfig):
     """Production configuration"""
