@@ -30,6 +30,7 @@ docker-machine:
 	  --generic-ip-address=193.124.206.35 \
 	  --generic-ssh-key ~/.ssh/id_rsa \
 	  testdriven-prod
-docker-machine-activate:
+docker-machine-activate-remote:
 	eval $(docker-machine env testdriven-prod)
-
+docker-machine-deactivate-remote:
+	eval $(docker-machine env -u)
