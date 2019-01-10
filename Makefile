@@ -8,5 +8,7 @@ prod:
 	docker-compose -f docker-compose-prod.yml build
 tests:
 	docker-compose -f docker-compose-dev.yml run users python manage.py test
+recreate-db:
+	docker-compose -f docker-compose-dev.yml run users python manage.py recreate-db
 shell:
 	docker-compose -f docker-compose-dev.yml run users flask shell
