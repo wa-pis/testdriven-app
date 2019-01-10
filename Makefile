@@ -10,5 +10,7 @@ tests:
 	docker-compose -f docker-compose-dev.yml run users python manage.py test
 recreate-db:
 	docker-compose -f docker-compose-dev.yml run users python manage.py recreate-db
+seed-db:
+	docker-compose -f docker-compose-dev.yml run users python manage.py seed-db
 shell:
 	docker-compose -f docker-compose-dev.yml run users flask shell
