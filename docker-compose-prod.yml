@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+
+  users:
+    build:
+      context: ./services/users
+      dockerfile: Dockerfile-dev
+    ports:
+      - 5001:5000
+    environment:
+      - FLASK_ENV=production
+      - APP_SETTINGS=project.config.ProductionConfig
+      - DATABASE_URL=mysql+mysqldb://root:VjYiLbuAiEcYdNpRRinSsL3B@db-host:3306/users_dev
+      - DATABASE_TEST_URL=mysql+mysqldb://root:VjYiLbuAiEcYdNpRRinSsL3B@db-host:3306/users_test
+    depends_on:
+      - db-host
+  
+  # https://dev.mysql.com/doc/refman/8.0/en/docker-mysql-more-topics.html
+  db-host:
+    build:
+      context: ./services/users/project/db
+      dockerfile: Dockerfile
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 5999:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=VjYiLbuAiEcYdNpRRinSsL3B
+      - MYSQL_ROOT_HOST=%
