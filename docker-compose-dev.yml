@@ -11,7 +11,6 @@ services:
     ports:
       - 5001:5000
     environment:
-      - FLASK_APP=project/__init__.py
       - FLASK_ENV=development
       - APP_SETTINGS=project.config.DevelopmentConfig
       - DATABASE_URL=mysql+mysqldb://root:VjYiLbuAiEcYdNpRRinSsL3B@db-host:3306/users_dev
